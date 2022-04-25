@@ -27,7 +27,7 @@ jobs:
       - name: Terraform init
         run: nix-shell --run 'terraform -chdir=./terraform init'
       - name: Terraform validate
-        run: nix-shell --run 'terraform -chdir=./terraform validate -no-color'
+        run: nix-shell --run 'terraform -chdir=./terraform validate -no-color -var image_location=../.github/stub-image'
 
   Nix:
     runs-on: ubuntu-latest
@@ -37,10 +37,10 @@ jobs:
     - name: Check Formatting
       run: nix develop --command nixpkgs-fmt .
 
-  Evaluation:
+  Build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: cachix/install-nix-action@v16
-    - name: Evaluate the ZFS image
-      run: nix-instantiate . -A images.zfs.x86_64-linux
+    - name: Evaluatet ZFS
+      run: nix build -L .#images.zfs.x86_64-linux

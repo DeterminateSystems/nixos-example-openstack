@@ -1,0 +1,11 @@
+{
+  "label": "22.05.20220424.87d34a6",
+  "boot_mode": "uefi",
+  "system": "x86_64-linux",
+  "disks": {
+    "root": {
+      "logical_bytes": "9638510592",
+      "file": "/nix/store/xxx-nixos-openstack-image-22.05.20220424.87d34a6-x86_64-linux/nixos-openstack-image-22.05.20220424.87d34a6-x86_64-linux.root.qcow2"
+    }
+  }
+}

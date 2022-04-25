@@ -8,7 +8,7 @@ terraform {
 }
 
 locals {
-  imagejson      = jsondecode(file("${path.module}/../result/nix-support/image-info.json"))
+  imagejson      = jsondecode(file("${var.image_location}/nix-support/image-info.json"))
   label          = local.imagejson["label"]
   root_disk_file = local.imagejson["disks"]["root"]["file"]
 }
