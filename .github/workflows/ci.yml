@@ -44,3 +44,11 @@ jobs:
     - uses: cachix/install-nix-action@v16
     - name: Evaluate ZFS
       run: nix-instantiate . -A images.zfs.x86_64-linux
+
+  EditorConfig:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: greut/eclint-action@v0
