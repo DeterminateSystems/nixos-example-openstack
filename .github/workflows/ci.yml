@@ -27,7 +27,7 @@ jobs:
       - name: Terraform init
         run: nix-shell --run 'terraform -chdir=./terraform init'
       - name: Terraform validate
-        run: nix-shell --run 'terraform -chdir=./terraform validate -no-color -var image_location=../.github/stub-image'
+        run: nix-shell --run 'terraform -chdir=./terraform validate -no-color'
 
   Nix:
     runs-on: ubuntu-latest
