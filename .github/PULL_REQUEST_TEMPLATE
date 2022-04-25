@@ -1,0 +1,11 @@
+##### Description
+
+<!--- Please include a short description of what your PR does and / or the
+motivation behind it --->
+
+##### Checklist
+
+<!--- Use `nix-shell` for a shell with all the required dependencies for
+building / formatting / testing / etc. --->
+
+- [ ] Checked the image builds with `nix build -L .#images.zfs.x86_64-linux`, since GitHub Actions doesn't support nested virtualisation.

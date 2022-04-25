@@ -1,0 +1,5 @@
+.terraform*
+terraform.tfstate*
+variables.auto.tfvars
+provider.tf
+result
