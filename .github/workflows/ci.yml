@@ -9,7 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: cachix/install-nix-action@v18
+    - uses: DeterminateSystems/nix-installer-action@main
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
     - uses: codespell-project/codespell-problem-matcher@v1
     - name: Check Spelling
       run: nix develop --command codespell .
@@ -21,7 +23,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: Install Nix
-        uses: cachix/install-nix-action@v18
+        uses: DeterminateSystems/nix-installer-action@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Terraform fmt
         run: nix-shell --run 'terraform fmt -check -recursive ./terraform'
       - name: Terraform init
@@ -33,7 +37,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: cachix/install-nix-action@v18
+    - uses: DeterminateSystems/nix-installer-action@main
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Check Formatting
       run: nix develop --command nixpkgs-fmt .
 
@@ -41,7 +47,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: cachix/install-nix-action@v18
+    - uses: DeterminateSystems/nix-installer-action@main
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Evaluate ZFS
       run: nix-instantiate . -A images.zfs.x86_64-linux
 
